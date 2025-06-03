@@ -10,7 +10,7 @@ Slouží k recepci pro monitorování hostů v pokojích.
 
 - Python 3.8 nebo novější
 - `pip` (správce balíčků)
-- Doporučeno: virtuální prostředí (`venv`)
+- Virtuální prostředí (`venv`)
 
 ---
 
@@ -23,36 +23,35 @@ Slouží k recepci pro monitorování hostů v pokojích.
     cd hotel
     ```
 
-2. **Vytvoření a aktivace virtuálního prostředí:**
+2. **Aktivace virtuálního prostředí:**
 
     - **Windows:**
-        ```bash
-        python -m venv venv
+        ```
         hotel\Scripts\activate
         ```
 
-3. **Instalace závislostí:**
+3. **Instalace requirements:**
 
-    ```bash
+    ```
     pip install -r requirements.txt
     ```
 
-4. **Aplikace migrací databáze:**
+4. **Migrace databáze (volitelné):**
 
-    ```bash
+    ```
     python manage.py migrate
     ```
 
 5. **(Volitelné) Vytvoření superuživatele:**
    Mělo by fungovat jméno a heslo pro přihlašení do django-admin, které jsem nastavil: adam, adam
 
-    ```bash
+    ```
     python manage.py createsuperuser
     ```
 
-7. **Spuštění vývojového serveru:**
+7. **Spuštění serveru:**
 
-    ```bash
+    ```
     python manage.py runserver
     ```
 
@@ -64,7 +63,7 @@ Slouží k recepci pro monitorování hostů v pokojích.
 
 - `manage.py` – hlavní spouštěcí skript
 - `hotel/` – hlavní konfigurační složka projektu
-- `requirements.txt` – seznam Python závislosti
+- `requirements.txt` – seznam Python požadavků
 
 ---
 
