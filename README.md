@@ -1,6 +1,6 @@
-# 🏨 Hotel – Django webová aplikace
+# 🏨 Hotel – Django aplikace
 
-Tento projekt je webová aplikace napsaná v Pythonu pomocí frameworku **Django**.
+Tento projekt je webová aplikace napsaná v Pythonu pomocí virtuálního prostředí django.
 
 Slouží k recepci pro monitorování hostů v pokojích.
 
