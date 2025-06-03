@@ -25,16 +25,10 @@ Slouží k recepci pro monitorování hostů v pokojích.
 
 2. **Vytvoření a aktivace virtuálního prostředí:**
 
-    - **Linux / macOS:**
-        ```bash
-        python3 -m venv venv
-        source venv/bin/activate
-        ```
-
     - **Windows:**
         ```bash
         python -m venv venv
-        venv\Scripts\activate
+        hotel\Scripts\activate
         ```
 
 3. **Instalace závislostí:**
@@ -69,8 +63,7 @@ Slouží k recepci pro monitorování hostů v pokojích.
 
 - `manage.py` – hlavní spouštěcí skript
 - `hotel/` – hlavní konfigurační složka projektu
-- `requirements.txt` – seznam Python závislostí
-- `templates/`, `static/`, `apps/` – podle struktury projektu
+- `requirements.txt` – seznam Python závislosti
 
 ---
 
