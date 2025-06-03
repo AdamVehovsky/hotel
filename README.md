@@ -44,12 +44,13 @@ Slouží k recepci pro monitorování hostů v pokojích.
     ```
 
 5. **(Volitelné) Vytvoření superuživatele:**
+   Mělo by fungovat jméno a heslo pro přihlašení do django-admin, které jsem nastavil: adam, adam
 
     ```bash
     python manage.py createsuperuser
     ```
 
-6. **Spuštění vývojového serveru:**
+7. **Spuštění vývojového serveru:**
 
     ```bash
     python manage.py runserver
