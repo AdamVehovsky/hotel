@@ -2,6 +2,8 @@
 
 Tento projekt je webová aplikace napsaná v Pythonu pomocí frameworku **Django**.
 
+Slouží k recepci pro monitorování hostů v pokojích.
+
 ---
 
 ## ✅ Požadavky
