@@ -1,0 +1,152 @@
+<!-- filepath: c:\PVA\hotel\recepce\templates\index.html -->
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div class="top-right">
+        <a href="/admin/"><button>Přihlásit se</button></a>
+    </div>
+    <h1 class="text-center">Všechny rezervace a pokoje</h1>
+    <div class="grid-container">
+        <div class="left-column">
+            <div class="two-column">
+                <div>
+                    <h2>Aktivní rezervace</h2>
+                    <div class="reservation-grid">
+                        {% for rezervace in active_rezervace %}
+                            <div class="reservation-card">
+                                <strong>ID rezervace:</strong> {{ rezervace.id }} <br>
+                                <strong>Host:</strong> {{ rezervace.host.jmeno }} <br>
+                                <strong>Email:</strong> {{ rezervace.host.email }} <br>
+                                <strong>Telefon:</strong> {{ rezervace.host.telefon }} <br>
+                                <strong>Národnost:</strong> {{ rezervace.host.narodnost }} <br>
+                                <strong>Datum příjezdu:</strong> {{ rezervace.datum_prijezdu }} <br>
+                                <strong>Datum odjezdu:</strong> {{ rezervace.datum_odjezdu }} <br>
+                                <strong>Počet osob:</strong> {{ rezervace.pocet_osob }} <br>
+                                <strong>Pokoj:</strong> {{ rezervace.pokoj.cislo }} <br>
+                                <strong>Druh pokoje:</strong> {{ rezervace.pokoj.typ_pokoje }} <br>
+                                <strong>Cena za noc:</strong> {{ rezervace.pokoj.cena_za_noc }} Kč <br>
+                                <strong>Cena celkem:</strong> {{ rezervace.cena_celkem|floatformat:2 }} Kč <br>
+                                <strong>Stav rezervace:</strong> {{ rezervace.stav }} <br>
+                                <strong>Speciální požadavky:</strong> {{ rezervace.specialni_pozadavky|default:"Žádné" }} <br>
+                                <strong>Datum platby:</strong> 
+                                {% with rezervace.platba_set.first.datum_platby as datum_platby %}
+                                    {{ datum_platby|default:"Není zaplaceno" }}
+                                {% endwith %} <br>
+                                <strong>Způsob platby:</strong> 
+                                {% with rezervace.platba_set.first.zpusob as zpusob_platby %}
+                                    {{ zpusob_platby|default:"Neuvedeno" }}
+                                {% endwith %} <br>
+                                <div class="actions">
+                                    <a href="/admin/recepce/rezervace/{{ rezervace.id }}/change/"><button>Upravit</button></a>
+                                    <a href="/admin/recepce/rezervace/{{ rezervace.id }}/delete/"><button>Smazat</button></a>
+                                </div>
+                            </div>
+                        {% empty %}
+                            <p>Žádné aktivní rezervace.</p>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div>
+                    <h2>Budoucí rezervace</h2>
+                    <div class="reservation-grid">
+                        {% for rezervace in future_rezervace %}
+                            <div class="reservation-card">
+                                <strong>ID rezervace:</strong> {{ rezervace.id }} <br>
+                                <strong>Host:</strong> {{ rezervace.host.jmeno }} <br>
+                                <strong>Email:</strong> {{ rezervace.host.email }} <br>
+                                <strong>Telefon:</strong> {{ rezervace.host.telefon }} <br>
+                                <strong>Národnost:</strong> {{ rezervace.host.narodnost }} <br>
+                                <strong>Datum příjezdu:</strong> {{ rezervace.datum_prijezdu }} <br>
+                                <strong>Datum odjezdu:</strong> {{ rezervace.datum_odjezdu }} <br>
+                                <strong>Počet osob:</strong> {{ rezervace.pocet_osob }} <br>
+                                <strong>Pokoj:</strong> {{ rezervace.pokoj.cislo }} <br>
+                                <strong>Druh pokoje:</strong> {{ rezervace.pokoj.typ_pokoje }} <br>
+                                <strong>Cena za noc:</strong> {{ rezervace.pokoj.cena_za_noc }} Kč <br>
+                                <strong>Cena celkem:</strong> {{ rezervace.cena_celkem|floatformat:2 }} Kč <br>
+                                <strong>Stav rezervace:</strong> {{ rezervace.stav }} <br>
+                                <strong>Speciální požadavky:</strong> {{ rezervace.specialni_pozadavky|default:"Žádné" }} <br>
+                                <strong>Datum platby:</strong> 
+                                {% with rezervace.platba_set.first.datum_platby as datum_platby %}
+                                    {{ datum_platby|default:"Není zaplaceno" }}
+                                {% endwith %} <br>
+                                <strong>Způsob platby:</strong> 
+                                {% with rezervace.platba_set.first.zpusob as zpusob_platby %}
+                                    {{ zpusob_platby|default:"Neuvedeno" }}
+                                {% endwith %} <br>
+                                <div class="actions">
+                                    <a href="/admin/recepce/rezervace/{{ rezervace.id }}/change/"><button>Upravit</button></a>
+                                    <a href="/admin/recepce/rezervace/{{ rezervace.id }}/delete/"><button>Smazat</button></a>
+                                </div>
+                            </div>
+                        {% empty %}
+                            <p>Žádné budoucí rezervace.</p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h2>Vypršené rezervace</h2>
+                <div class="reservation-grid">
+                    {% for rezervace in expired_rezervace %}
+                        <div class="reservation-card">
+                            <strong>ID rezervace:</strong> {{ rezervace.id }} <br>
+                            <strong>Host:</strong> {{ rezervace.host.jmeno }} <br>
+                            <strong>Email:</strong> {{ rezervace.host.email }} <br>
+                            <strong>Telefon:</strong> {{ rezervace.host.telefon }} <br>
+                            <strong>Národnost:</strong> {{ rezervace.host.narodnost }} <br>
+                            <strong>Datum příjezdu:</strong> {{ rezervace.datum_prijezdu }} <br>
+                            <strong>Datum odjezdu:</strong> {{ rezervace.datum_odjezdu }} <br>
+                            <strong>Počet osob:</strong> {{ rezervace.pocet_osob }} <br>
+                            <strong>Pokoj:</strong> {{ rezervace.pokoj.cislo }} <br>
+                            <strong>Druh pokoje:</strong> {{ rezervace.pokoj.typ_pokoje }} <br>
+                            <strong>Cena za noc:</strong> {{ rezervace.pokoj.cena_za_noc }} Kč <br>
+                            <strong>Cena celkem:</strong> {{ rezervace.cena_celkem|floatformat:2 }} Kč <br>
+                            <strong>Stav rezervace:</strong> {{ rezervace.stav }} <br>
+                            <strong>Speciální požadavky:</strong> {{ rezervace.specialni_pozadavky|default:"Žádné" }} <br>
+                            <strong>Datum platby:</strong> 
+                            {% with rezervace.platba_set.first.datum_platby as datum_platby %}
+                                {{ datum_platby|default:"Není zaplaceno" }}
+                            {% endwith %} <br>
+                            <strong>Způsob platby:</strong> 
+                            {% with rezervace.platba_set.first.zpusob as zpusob_platby %}
+                                {{ zpusob_platby|default:"Neuvedeno" }}
+                            {% endwith %} <br>
+                            <div class="actions">
+                                <a href="/admin/recepce/rezervace/{{ rezervace.id }}/change/"><button>Upravit</button></a>
+                                <a href="/admin/recepce/rezervace/{{ rezervace.id }}/delete/"><button>Smazat</button></a>
+                            </div>
+                        </div>
+                    {% empty %}
+                        <p>Žádné vypršené rezervace.</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="right-column">
+            <h2>Seznam pokojů</h2>
+            <h3>Volné pokoje:</h3>
+            <ul class="room-list">
+                {% for pokoj in volne_pokoje %}
+                    <li>
+                        {{ pokoj.cislo }} - {{ pokoj.typ_pokoje }} - Kapacita: {{ pokoj.kapacita }} - Cena za noc: {{ pokoj.cena_za_noc }} Kč
+                        <div class="actions">
+                            <a href="/admin/recepce/pokoj/{{ pokoj.id }}/change/"><button>Rezervovat</button></a>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+
+            <h3>Obsazené pokoje:</h3>
+            <ul class="room-list">
+                {% for pokoj in obsazene_pokoje %}
+                    <li>
+                        {{ pokoj.cislo }} - {{ pokoj.typ_pokoje }} - Kapacita: {{ pokoj.kapacita }} - Cena za noc: {{ pokoj.cena_za_noc }} Kč
+                        <div class="actions">
+                            <a href="/admin/recepce/pokoj/{{ pokoj.id }}/change/"><button>Detaily</button></a>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}
