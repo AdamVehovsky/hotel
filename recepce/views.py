@@ -12,7 +12,6 @@ def index(request):
     active_rezervace = list(rezervace_list.filter(datum_prijezdu__lte=today, datum_odjezdu__gte=today))
     future_rezervace = list(rezervace_list.filter(datum_prijezdu__gt=today))
 
-    # Calculate cena_celkem for each reservation in each list
     for rezervace in expired_rezervace + active_rezervace + future_rezervace:
         nights = (rezervace.datum_odjezdu - rezervace.datum_prijezdu).days
         rezervace.cena_celkem = rezervace.pokoj.cena_za_noc * nights if nights > 0 else 0
@@ -82,8 +81,8 @@ def export_rezervace_to_excel(request):
             nights = 0
             cena_celkem = 0
 
-        # Získání dat o platbě (pokud existují)
-        platba = rezervace.platba_set.first()  # Předpokládáme, že rezervace má vztah k platbám
+        # Získání dat o platbě
+        platba = rezervace.platba_set.first() 
         datum_platby = platba.datum_platby if platba else "Není zaplaceno"
         zpusob_platby = platba.zpusob if platba else "Neuvedeno"
 
