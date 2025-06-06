@@ -1,11 +1,11 @@
-/* General Reset */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body Styling */
+
 body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.8;
@@ -17,7 +17,7 @@ body {
     padding: 20px;
 }
 
-/* Header Styling */
+
 header {
     background: #6a11cb;
     background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
@@ -33,7 +33,7 @@ header h1 {
     letter-spacing: 1px;
 }
 
-/* Navigation Bar */
+
 nav {
     background: #333;
     color: #fff;
@@ -56,7 +56,7 @@ nav a:hover {
     color: #74ebd5;
 }
 
-/* Main Content */
+
 main {
     background: rgba(255, 255, 255, 0.9); /* Slight transparency for better blending */
     padding: 30px;
@@ -66,7 +66,7 @@ main {
     border-radius: 15px;
 }
 
-/* Grid Layout */
+
 .grid-container {
     display: grid;
     grid-template-columns: 2fr 1fr; /* Left column (reservations) and right column (rooms) */
@@ -93,7 +93,7 @@ main {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Reservation Grid */
+
 .reservation-grid {
     display: grid;
     grid-template-columns: 1fr; /* Single column for reservations */
@@ -115,7 +115,6 @@ main {
     transform: translateY(-5px);
 }
 
-/* Lists Styling */
 ul {
     list-style-type: none;
     margin: 15px 0;
@@ -156,7 +155,7 @@ ul li:hover {
     z-index: 1;
 }
 
-/* Reservation List Styling */
+
 ul.reservation-list {
     max-width: 600px;
     margin: 0;
@@ -166,7 +165,7 @@ ul.reservation-list li {
     text-align: left;
 }
 
-/* Room List Styling */
+
 ul.room-list {
     max-width: 600px;
     margin: 0;
@@ -174,7 +173,7 @@ ul.room-list {
     text-align: left;
 }
 
-/* Headings Styling */
+
 h1, h2, h3 {
     margin-bottom: 25px;
     color: #222;
@@ -189,7 +188,7 @@ h1 {
 h1.text-center {
     text-align: center;
     margin-bottom: 30px;
-    color: #ff5733; /* Updated color */
+    color: #ff5733; 
     font-weight: bold;
 }
 
@@ -205,7 +204,7 @@ h3 {
     color: #555;
 }
 
-/* Table Styling */
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -233,7 +232,7 @@ table tr:hover {
     background-color: #f1f1f1;
 }
 
-/* Buttons */
+
 button {
     background: #6a11cb;
     background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
@@ -272,7 +271,7 @@ button:hover {
     z-index: 1;
 }
 
-/* Actions Styling */
+
 .actions {
     margin-top: 10px;
     display: flex;
@@ -314,7 +313,7 @@ button:hover {
     transform: scale(1.05);
 }
 
-/* Footer Styling */
+
 footer {
     background: #333;
     color: #fff;
@@ -329,7 +328,7 @@ footer p {
     font-weight: 500;
 }
 
-/* Utility Classes */
+
 .text-center {
     text-align: center;
 }
@@ -338,14 +337,14 @@ footer p {
     margin-top: 20px;
 }
 
-/* Two-Column Layout */
+
 .two-column {
     display: grid;
     grid-template-columns: 1fr 1fr; /* Two equal columns */
     gap: 20px;
 }
 
-/* Top-Right Login Button */
+
 .top-right {
     position: absolute;
     top: 20px;
